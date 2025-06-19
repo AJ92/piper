@@ -35,7 +35,7 @@ extern "C" {
 	PIPER_API char* getVersion();
 	PIPER_API void initializePiper(PiperConfig* config);
 	PIPER_API void terminatePiper(PiperConfig* config);
-	PIPER_API SynthesisConfig getSynthesisConfig(Voice* voice);
+	PIPER_API SynthesisConfig* getSynthesisConfig(Voice* voice);
 	PIPER_API void loadVoice(PiperConfig* config, const char* modelPath, const char* modelConfigPath, Voice* voice, SpeakerId* speakerId);
 	PIPER_API void textToAudio(PiperConfig* config, Voice* voice, const char* text, SynthesisResult* result, AudioCallback audioCallback);
 	PIPER_API void textToWavFile(PiperConfig* config, Voice* voice, const char* text, const char* audioFile, SynthesisResult* result);

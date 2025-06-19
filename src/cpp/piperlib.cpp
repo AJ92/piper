@@ -94,8 +94,8 @@ extern "C"
         piper::terminate(*config);
     }
 
-    SynthesisConfig getSynthesisConfig(Voice* voice) {
-        return voice->synthesisConfig;
+    SynthesisConfig* getSynthesisConfig(Voice* voice) {
+        return &voice->synthesisConfig;
     }
 
     void loadVoice(PiperConfig* config, const char* modelPath, const char* modelConfigPath, Voice* voice, int64_t* speakerId) {

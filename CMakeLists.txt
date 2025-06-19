@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.18)
 
 project(piper C CXX)
 
@@ -76,13 +76,15 @@ endif()
 
 # ---- Declare executable ----
 
-if((NOT MSVC) AND (NOT APPLE))
+if((NOT WIN32) AND (NOT APPLE))
   # Linux flags
   string(APPEND CMAKE_CXX_FLAGS " -Wall -Wextra -Wl,-rpath,'$ORIGIN'")
   string(APPEND CMAKE_C_FLAGS " -Wall -Wextra")
   target_link_libraries(piper -static-libgcc -static-libstdc++)
 
   set(PIPER_EXTRA_LIBRARIES "pthread")
+
+  message("linux build...")
 endif()
 
 target_link_libraries(piper
